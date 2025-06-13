@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>java</groupId>
+    <artifactId>phim</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>23</maven.compiler.release>
+        <exec.mainClass>java.phim.Phim</exec.mainClass>
+    </properties>
+    <!-- Thêm repository Oracle -->
+    <repositories>
+        <repository>
+            <id>oracle-repo</id>
+            <url>https://maven.oracle.com</url>
+        </repository>
+    </repositories>
+
+    <!-- Thêm dependency Oracle JDBC -->
+    <dependencies>
+        <!-- Oracle JDBC Driver -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>19.8.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+<dependency>
+  <groupId>org.apache.poi</groupId>
+  <artifactId>poi-ooxml</artifactId>
+  <version>5.2.3</version>
+    <type>jar</type>
+</dependency>
+
+         <!-- Flatlat UI -->
+        <dependency>
+    <groupId>com.formdev</groupId>
+    <artifactId>flatlaf</artifactId>
+    <version>3.2</version>
+</dependency>
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.0.19</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.70</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+    
+    <build>
+    <plugins>
+        <!-- Plugin để chạy ứng dụng bằng Maven -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <mainClass>com.phim.view.EmployeeView</mainClass> <!-- Thay đổi từ salesmate thành coffeemate -->
+                <systemProperties>
+                    <systemProperty>
+                        <key>java.library.path</key>
+                        <value>${project.basedir}/src/main/resources/opencv</value> <!-- Đường dẫn tới thư mục chứa thư viện OpenCV -->
+                    </systemProperty>
+                </systemProperties>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin để tạo file JAR có Main Class -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.2</version>
+            <configuration>
+                <mainClass>com.phim.view.LoginForm</mainClass> <!-- Thay đổi từ salesmate thành coffeemate -->
+            </configuration>
+        </plugin>
+        
+        <!-- Plugin để biên dịch mã nguồn Java -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source>  <!-- Set Java source version to 1.8 (Java 8) -->
+                <target>1.8</target>  <!-- Set Java target version to 1.8 (Java 8) -->
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+</project>
