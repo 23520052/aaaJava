@@ -13,7 +13,7 @@ Link video demo code (do video nặng không thể đưa lên courses): https://
 
 -    **Đề tài:** Xây dựng hệ thống quản lý rạp chiếu phim 
 
-# CoffeeMate
+# MOVIETHEATER AAA
 
 **MOVIETHEATER AAA** là ứng dụng quản lý rạp chiếu phim viết bằng Java Swing, hỗ trợ đầy đủ nghiệp vụ: quản lý danh mục phim, nhân viên, suất chiếu, hóa đơn và thống kê.
 
